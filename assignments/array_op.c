@@ -128,7 +128,7 @@ char *incastona(char *str1, char *str2){
     for (i = 0; i <= big_len; i ++){
         if (i < start_pos || i >= (start_pos + ltl_len))    //prima e dopo la stringa piccola, copiamo la grande
             buff[i] = big[i];
-        else if ( i = start_pos){   //copiamo interamente la stringa piccola
+        else if ( i == start_pos){   //copiamo interamente la stringa piccola
             for (j = 0; j < ltl_len; j++)
                 buff[i + j] = little[j];
             i += ltl_len - 1;   //aggiorniamo il valore di i per essere alla fine dell'array popolato
@@ -167,6 +167,40 @@ char *ordina( char* str){
 
 }
 
+/*
+    Trova una sequenza find non sovrapposta in una stringa str, restituendo il numero di occorrenze
+
+    input: find, str
+    output: count
+
+*/
+
+
+int find_seq(char *str, char *find){
+
+    int len_to_find = mylen(find), len_str = mylen(str);
+    int i, j, flag, count = 0;
+
+    for (i = 0; i <= len_str - len_to_find; i++){
+        flag = 0;
+        for (j = i; j < len_to_find + i; j++)   //cicla sulla str, uscendo alla prima lettera diversa da find
+            if (str[j] != find[j - i]){
+                flag = 1;
+                break;
+            }
+        
+        if (flag == 0){     //se è stata trovata una sequenza, incrementa count e skippa a i + len_tofind dato che non è sovrapposta
+            count ++;
+            i += len_to_find - 1;
+        }
+
+    }
+
+    return count;
+
+}
+
+
 int main(void){
     char *nome, *cognome, *concat, *incast, *n_ord, *c_ord;
 
@@ -197,6 +231,8 @@ int main(void){
 
     printf("\nCognome ordinato:  ");
     print_char_array(c_ord);
+
+    printf("\nTrovate %d occorrenze del nome, nel cognome", find_seq(cognome, nome));
 
 
     printf("\n\n");
