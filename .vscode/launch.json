@@ -33,7 +33,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": ["test_suite.txt", "test_result.txt"],
+            "args": ["libri.txt"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
