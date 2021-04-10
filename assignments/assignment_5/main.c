@@ -35,7 +35,7 @@ int main (int argc, char *argv[]){
     printf("L'elemento 25, se esiste, è in posizione: %d\n", posItem(num_list, 25));
     printf("L'elemento 55, se esiste, è in posizione: %d\n", posItem(num_list, 55));
 
-    reverseList(num_list);
+    num_list = reverseList(num_list);
     outputList(num_list);
 
     return 0;

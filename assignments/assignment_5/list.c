@@ -92,7 +92,7 @@ int emptyList(list l){
 list tailList(list l){
     int i, dim = l->size;
     list list_temp = newList();
-    struct node n_temp;
+    //struct node n_temp;   ???
 
     list_temp->size = dim - 1;
     list_temp->first = l->first->next;
@@ -153,7 +153,8 @@ int posItem(list l, item val){
             return i;
         }
         else
-            temp = temp->next; 
+            temp = temp->next;
+             
 
     return -1;
 }
@@ -170,18 +171,12 @@ item getItem (list l, int pos){
 }
 
 list reverseList (list l){
-    int i;
+    int i, dim = sizeList(l);
     list new = newList();
-    new->size = 0;
-
-    struct node * temp_node;
-    temp_node = l->first;
-
-    for (i = 0; i < sizeList(l); i++){
-        new = insertNode(temp_node, 0, temp_node->value);
-        
-        temp_node = temp_node->next;
-        new->size += 1;
+    
+    for(i = 0; i < dim; i++){
+        new = consList(l->first->value, new);
+        l = tailList(l);
     }
 
     return new;

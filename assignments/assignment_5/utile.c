@@ -25,5 +25,4 @@ void *xmalloc(size_t nbytes){
     }
 
     return result;
-
 }

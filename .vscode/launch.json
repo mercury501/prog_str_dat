@@ -54,7 +54,7 @@
             "name": "make - CUSTOM_NAME",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/test_list",
+            "program": "${fileDirname}/main",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
